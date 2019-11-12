@@ -8,6 +8,7 @@ var logger = require('morgan');
 // 사용자 정의 모듈 추출
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var productRouter = require('./routes/product');
 
 //서버 실행
 var app = express();
@@ -26,8 +27,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 // 라우터 미들웨어 설정
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/product', productRouter);
 
-// catch 404 and forward to error handler 404 에러 메세지 출력 
+// catch 404 and forward to error handler 404 에러 메세지 출력
 app.use(function(req, res, next) {
   next(createError(404));
 });
